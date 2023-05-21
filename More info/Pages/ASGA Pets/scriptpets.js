@@ -2,15 +2,7 @@
 
 var cookies = 0;
 
-if(localStorage.getItem("cookies") != null){
-    cookies = parseInt(localStorage.getItem("cookies"))
-}
 
-else{
-    console.log("se empezó una nueva partida")
-    localStorage.setItem("cookies",1.5)
-    cookies = parseInt(localStorage.getItem("cookies"))
-}
 
 
 
@@ -27,18 +19,8 @@ const legendary = "#9B0013";
 
 var pets = [];
 
-for (let i = 0;i < localStorage.length - 1; i++){  /* No se pierde la data al recargar la pagina*/
+const allPets = []
 
-    const kei = localStorage.key(i);
-
-    if(kei != "cookies"){
-        const pet = JSON.parse(localStorage.getItem(kei));
-        pets.push(pet);
-    }
-
-}
-
-updateMypets();
 
 /* Clases */
 
@@ -138,6 +120,70 @@ const infoElephant = [
     {name: "Cthulhu", description: "Proviene de otro universo donde controlan la paz del cosmos", rarity: epic},
     {name: "Coronel Hathi", description: "Mi vieja es reggaetonera porque si no le contesto se desespera", rarity: legendary},
 ];
+
+function fillallPets(){
+
+    for (let i = 0;i < infoMouse.length - 1; i++){  /* No se pierde la data al recargar la pagina*/
+
+    if(!allPets.includes(infoMouse[i].name)){
+        allPets.push(infoMouse[i].name)
+    }
+}
+
+for (let i = 0;i < infoCat.length - 1; i++){  /* No se pierde la data al recargar la pagina*/
+
+if(!allPets.includes(infoCat[i].name)){
+    allPets.push(infoCat[i].name)
+}
+
+
+}
+
+for (let i = 0;i < infoElephant.length - 1; i++){  /* No se pierde la data al recargar la pagina*/
+
+if(!allPets.includes(infoElephant[i].name)){
+    allPets.push(infoElephant[i].name)
+}
+}
+
+}
+
+fillallPets();
+
+
+/*localStorage*/
+
+
+if(localStorage.getItem("cookies") != null){
+    cookies = parseInt(localStorage.getItem("cookies"))
+}
+
+else{
+    console.log("se empezó una nueva partida")
+    localStorage.setItem("cookies",1.5)
+    cookies = parseInt(localStorage.getItem("cookies"))
+}
+
+for (let i = 0;i < localStorage.length - 1; i++){  /* No se pierde la data al recargar la pagina*/
+
+    const key = localStorage.key(i);
+
+    try {
+        if(allPets.includes(key)){
+            const pet = JSON.parse(localStorage.getItem(key));
+            pets.push(pet);
+        }
+    } catch (error) {
+        console.log("este dato no pertenece a la pagina: ", key)
+    }
+
+
+
+}
+
+updateMypets();
+
+
 
 
 /* Sections */
