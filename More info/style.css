@@ -229,3 +229,69 @@ margin-top: -10px;
   max-width: 100%;
 
 }
+
+/* Estilos para resoluciones superiores a 768px */
+@media (max-width: 1000px) {
+  .hover-image {
+    display: none;
+  }
+
+  body {
+    justify-content: center;
+    padding-left: 0rem;
+  }
+  
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+  
+  /* Ajusta los estilos específicos de las tarjetas para pantallas más pequeñas */
+  .card {
+    width: 100%; /* O ajusta a tu preferencia */
+    margin: 0 auto; /* Centra horizontalmente las tarjetas */
+    /* Otros estilos necesarios para pantallas pequeñas */
+  }
+  
+  /* Ajusta el fondo de zeer */
+  #fondo-dezeer {
+    margin-top: 1.5rem; /* O ajusta a tu preferencia */
+  }
+  
+  /* Ajusta los detalles de las tarjetas para pantallas más pequeñas */
+  .card .details {
+    bottom: -160px; /* Ajusta según tu diseño */
+  }
+  
+  /* Ajusta los detalles específicos de cada tarjeta */
+  #dezeercard .details,
+  #cuyisticard .details,
+  #anecdotescard .details,
+  #asgacard .details {
+    bottom: -110px; /* Ajusta según tu diseño */
+  }
+  
+  /* Otros estilos necesarios para pantallas pequeñas */
+}
+
+/* Estilos para resoluciones superiores a 768px */
+@media (max-width: 500px) {
+  #dezeercard .details{
+    bottom: -170px;
+  }
+  
+  #cuyisticard .details{
+    bottom: -170px;
+  }
+  
+  #anecdotescard .details{
+    bottom: -110px;
+  }
+  
+  #asgacard .details{
+    bottom: -310px;
+  }
+}
+
+
