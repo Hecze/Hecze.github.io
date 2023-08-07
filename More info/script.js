@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const hoverImage = document.querySelector("#fondo-asga");
     
     card.addEventListener("mouseenter", () => {
-      hoverImage.style.left = "-7%";
+      hoverImage.style.left = "-6%";
       document.body.style.backgroundImage = "linear-gradient(60deg, #A97C2D, #AE3916)";
     });
     
