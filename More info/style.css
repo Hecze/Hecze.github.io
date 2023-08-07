@@ -187,6 +187,13 @@ body {
   box-shadow: 0 0 2px #c27efd;
 }
 
+.card .details .tags .mongo
+{
+  color: #000000;
+  background: #1f6931;
+  box-shadow: 0 0 2px #90c98b;
+}
+
 .card .details .info
 {
 color: #ffffff00;
