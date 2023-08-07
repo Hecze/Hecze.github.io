@@ -65,7 +65,7 @@ html {
     position: relative;
     padding: 5.5vh 16vw ;
     padding-top: 0;
-    margin-top: -1.15rem;
+    margin-top: -2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -271,17 +271,18 @@ transition: 0.5s;
     transform: translateX(-50%);
     width: 150px;
     height: 150px;
-    background: #fff;
+    background: #140a04c5;
     border-radius: 20px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.7s;
     
 }
 
 .perfilcard:hover .imgBx {
     width: 250px;
     height: 250px;
+    background-color: rgba(255, 255, 255, 0.87);
 }
 
 .imgBx img {

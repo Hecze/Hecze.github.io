@@ -1,83 +1,231 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
 * {
-  padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  background-image: linear-gradient(65deg, #0a0a7c, rgb(84, 4, 4));
-  align-items: center;
-  justify-content: center;
-}
-
-.projects{
-  color: white;
-  font-size: 40px;
-  padding: 30px 30px 0px 30px;
-}
-
-.container {
+  transition: background-color 0.5s ease-in-out;
   display: flex;
-  margin: 12%;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
-  gap: 70px;
-  flex-wrap: wrap;
+  min-height: 100vh;
+  padding-left: 35rem;
+  background: linear-gradient(#007bb2, #0d1423)
+
 }
 
-.container .card {                                          
-    width: 300px;
-    height: 400px;
-    background-color: rgb(126, 129, 185);
-    border-radius: 20px;
-    padding: 10px;
-    display: inline-block;
-    justify-content: center;
-    border: 6px solid #2808087c;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.759);
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.871);
-    transition: .27s;
-    opacity: .9;
+.container
+{
+  /*maximo 2 cards por fila*/
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem 4rem;
+  padding: 0 2rem;
+  justify-content: right;
+  margin-top: 1.5rem;
+  margin-right: 5rem;
 }
 
-.container .card:hover {
-    filter: brightness(1.1);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.822);
-    opacity: 1;
+.hover-image {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100vh;
+  z-index: 100;
+  transition: left 0.5s;
 }
-.container .card::after {
-  width: 100px;
-  background-color: black;
+
+#fondo-dezeer{
+  margin-top: 5rem;
+}
+
+.card{
+  position: relative;
+  width: 300px;
+  height: 420px;
+  border-radius:20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+
+.card .poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .poster::before{
+  content: "";
+  position: absolute;
+  bottom: -180px;
+  width: 100%;
+  height:100%;
+  background: linear-gradient(0deg,#24190b 50%, transparent);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+
+.card:hover .poster::before{
+
+  bottom: 0px;
+}
+
+.card .poster img{
+  width: 100%;
+  transition: 0.5s;
+}
+
+.card:hover .poster img{
+  transform: translateY(-50px);
+  filter: blur(5px);
+}
+
+.card .details{
+  position: absolute;
+  bottom: -220px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+#dezeercard .details{
+  bottom: -170px;
+}
+
+#cuyisticard .details{
+  bottom: -160px;
+}
+
+#anecdotescard .details{
+  bottom: -110px;
+}
+
+#asgacard .details{
+  bottom: -310px;
+}
+
+
+.card:hover .details{
+  bottom: 0px;
+}
+
+#dezeercard:hover .details{
+  bottom: 0px;
+}
+
+#cuyisticard:hover .details{
+  bottom: 0px;
+}
+
+#anecdotescard:hover .details{
+  bottom: 0px;
+}
+
+#asgacard:hover .details{
+  bottom: 0px;
+}
+
+
+.card .details .logo{
+  max-width: 180px;
+  margin-left: -10px;
+}
+
+.card .details h3{
+  font-size: 14px;
+  color: #fff;
+}
+
+.card .details .tags
+{
+  display: relative;
+  margin-top: 5px;
+}
+
+
+.card .details .tags span{
+  font-weight: 600;
+  font-size: 10px;
+  color: #fff;
+  background: #007bb2;
+  padding: 2px 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px #f0db39;
+  transition: 0.3s;
+}
+
+.card:hover .details .tags span
+{
+  color: #00000000;
+  background: #007ab200;
+  box-shadow: none;
+}
+
+.card .details .tags .js{
+
+  color: #000000;
+  background: #f0db39;
+  box-shadow: 0 0 2px #f0db39;
+}
+
+.card .details .tags .react{
+
+  color: #000000;
+  background: #7e3bb9;
+  box-shadow: 0 0 2px #c27efd;
+}
+
+.card .details .info
+{
+color: #ffffff00;
+margin-top: 20px;
+transition: 0.6s;
+}
+
+.card:hover .details .info
+{
+color: #ffffff;
+margin-top: -10px;
+}
+
+.card .details .techs{
+  position: relative;
+}
+
+
+.card .details .techs h4{
+  color: #fff;
+  margin-top: 14px;
+}
+
+.card .details .techs ul{
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card .details .techs ul li{
+  list-style: none;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
   
 }
 
-.container .card .title {
-    width: 100%;
-    height: 50px;
-    font-size: 28px;
-    text-align: center;
-    letter-spacing: 2px;
-}
-
-.container .card img{
-    object-fit: cover;
-    width: 100%;
-    height: 70%;
-    border-radius: 7px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.713);
-    opacity: .9;
+.card .details .techs ul li img{
+  max-width: 100%;
 
 }
-
-.container .card .require{
-    padding: 17px;
-    text-align: center;
-    width: 100%;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 500;
-}
-
